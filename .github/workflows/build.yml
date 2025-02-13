@@ -298,6 +298,7 @@ jobs:
           go build -ldflags="-w -s" -o ui/flutter/assets/host/host github.com/GopeedLab/gopeed/cmd/host
           cd ui/flutter
           dart pub global activate -sgit https://github.com/GopeedLab/flutter_distributor.git --git-path packages/flutter_distributor
+          export PATH="$PATH":"$HOME/.pub-cache/bin"
           flutter_distributor package --platform linux --targets appimage,deb
           cd dist/*
           mv gopeed-*-linux.AppImage Gopeed-v${VERSION}-linux-aarch64.AppImage
